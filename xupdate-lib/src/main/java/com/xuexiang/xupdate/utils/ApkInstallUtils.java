@@ -210,7 +210,7 @@ public final class ApkInstallUtils {
             return false;
         }
         boolean isRoot = isDeviceRooted();
-        String command = "pm install -i " + packageName + " --user 0 " + filePath;
+        String command = "pm install -r -i " + packageName + " --user 0 " + filePath;
         CommandResult commandResult = ShellUtils.execCommand(command, isRoot);
         return (commandResult.successMsg != null
                 && commandResult.successMsg.toLowerCase().contains("success"));

@@ -4,7 +4,7 @@
  **/
 ext.deps = [:]
 def versions = [:]
-versions.android_gradle_plugin = "3.6.1"
+versions.android_gradle_plugin = '7.1.0'
 versions.android_maven_gradle_plugin = "2.0"
 versions.gradle_bintray_plugin = "1.8.0"
 versions.booster = "1.4.0"
@@ -123,7 +123,7 @@ static def addRepos(RepositoryHandler handler) {
     handler.jcenter { url 'https://maven.aliyun.com/repository/jcenter' }
     handler.mavenCentral { url 'https://maven.aliyun.com/repository/central' }
     handler.maven { url "https://jitpack.io" }
-    handler.maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    handler.maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
     handler.maven { url "https://dl.bintray.com/umsdk/release" }
     handler.maven { url 'https://oss.sonatype.org/content/repositories/public' }
     //Add the Local repository

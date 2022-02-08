@@ -1,9 +1,12 @@
-apply plugin: 'com.android.library'
+//apply plugin: 'com.android.library'
 //apply plugin: 'img-optimizer'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 android {
     compileSdkVersion build_versions.target_sdk
-    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
         minSdkVersion 14
@@ -11,11 +14,11 @@ android {
 
         vectorDrawables.useSupportLibrary = true
     }
-
-    lintOptions {
-        checkReleaseBuilds false
+    lint {
         abortOnError false
+        checkReleaseBuilds false
     }
+
 
 }
 
@@ -24,4 +27,18 @@ dependencies {
     compileOnly deps.androidx.appcompat
 }
 
-apply from: "../JitPackUpload.gradle"
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.czhongm'
+                artifactId = 'XUpdate'
+                version = '2.1.2'
+            }
+        }
+    }
+}
+
+
+//apply from: "../JitPackUpload.gradle"
